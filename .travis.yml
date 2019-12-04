@@ -3,4 +3,4 @@ python:
   - "3.8"
 # command to run tests
 script:
-  - testStats.py
+  - python testStats.py
