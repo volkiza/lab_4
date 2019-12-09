@@ -2,5 +2,8 @@ language: python
 python:
   - "3.8"
 # command to run tests
+install: 
+  - pip install --use-mirrors pyparsing
+  - pip install --use-mirrors matplotlib
 script:
   - python lab_3/test_suite.py
