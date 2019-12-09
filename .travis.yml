@@ -3,4 +3,4 @@ python:
   - "3.8"
 # command to run tests
 script:
-  - python lab_3/testStats.py
+  - python lab_3/test_suite.ipynb
