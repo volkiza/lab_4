@@ -2,20 +2,7 @@ language: python
 python:
   - "3.8"
 # command to run tests
-install: 
-  - pip install --use-mirrors pyparsing
-  - pip install --use-mirrors matplotlib
-script: nosetests
-virtualenv:
-  system_site_packages: true
-before_install:
-  - pip install numpy
-  - pip install python-dateutil
-  - pip install pytz
-  - pip install scipy
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq libatlas-dev libatlas-base-dev liblapack-dev gfortran
-notifications: 
-  email: false
+install:
+  - pip install -r requirments.txt
 script:
   - python lab_3/test_suite.py
