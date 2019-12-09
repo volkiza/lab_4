@@ -5,4 +5,4 @@ python:
 install:
   - pip install -r requirments.txt
 script:
-  - python lab_3/test_suite.py
+  - python lab_3/testDistance.py
