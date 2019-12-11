@@ -33,7 +33,7 @@ def s_median(nums):
             med = (med1 + med2) / 2
         else:
             med = nums[n // 2]
-    except ValueError:
+    except TypeError:
         print("Enter numerical values, wrong value entered")
     return med
 
@@ -43,7 +43,7 @@ def s_var(nums):
     try:
         for i in nums:
             tot += (s_mean(nums) - i) ** 2
-    except ValueError:
+    except TypeError:
         print("Enter numerical values, wrong value entered")
     variance = tot / len(nums)
     return variance
@@ -55,7 +55,7 @@ def sample_var(nums):
         for i in nums:
             tot += (s_mean(nums) - i) ** 2
         n = (len(nums)-1) 
-    except ValueError:
+    except TypeError:
         print("Enter numerical values, wrong value entered")
     try:
         if n>5000:
