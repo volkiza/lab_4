@@ -39,7 +39,6 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.s_median(self.nums4), 5)
         self.assertEqual(st.s_median(self.nums9), 4)
         self.assertIsNotNone(st.s_median(self.nums6))
-        self.assertIsNotNone(st.s_median(self.nums7))
 
     def test_var(self):
         self.assertEqual(st.s_var(self.nums1), 2)
