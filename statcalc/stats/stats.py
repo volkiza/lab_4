@@ -8,10 +8,10 @@ class LargeSampleError(Exception):
 
 def s_mean(nums):
     try:
-        n = max(len(nums))
+        n = max(len(nums),1)
         if n<2:
             raise ListLenError()
-        return float(sum(nums)) / n, 1)
+        return float(sum(nums)) / n
     except ValueError:
         print("Enter numerical values, wrong value entered")        
     except ListLenError:
