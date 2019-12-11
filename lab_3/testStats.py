@@ -28,8 +28,8 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.s_mean(self.nums3), 3.4)
         self.assertEqual(st.s_mean(self.nums4), 5.0)
         self.assertEqual(st.s_mean(self.nums5), 5.4)
-        self.assertIsNotNone(st.s_mean(self.nums6))
-        self.assertIsNotNone(st.s_mean(self.nums7))
+        self.assertIsNone(st.s_mean(self.nums6))
+        self.assertIsNone(st.s_mean(self.nums7))
 
     def test_median(self):
         self.assertEqual(st.s_median(self.nums1), 3)
@@ -37,8 +37,8 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.s_median(self.nums3), 4)
         self.assertEqual(st.s_median(self.nums4), 5)
         self.assertEqual(st.s_median(self.nums5), 6)
-        self.assertIsNotNone(st.s_median(self.nums6))
-        self.assertIsNotNone(st.s_median(self.nums7))
+        self.assertIsNone(st.s_median(self.nums6))
+        self.assertIsNone(st.s_median(self.nums7))
 
     def test_var(self):
         self.assertEqual(st.s_var(self.nums1), 2)
@@ -46,7 +46,7 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.s_var(self.nums3), 3.04)
         self.assertEqual(st.s_var(self.nums4), 8.0)
         self.assertEqual(st.s_var(self.nums5), 4.64)
-        self.assertIsNotNone(st.s_var(self.nums7))
+        self.assertIsNone(st.s_var(self.nums7))
 
     def test_sampleVar(self):
         self.assertEqual(st.sample_var(self.nums1), 2.5)
@@ -54,8 +54,8 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.sample_var(self.nums3), 3.8)
         self.assertEqual(st.sample_var(self.nums4), 10.0)
         self.assertEqual(st.sample_var(self.nums5), 5.8)
-        self.assertIsNotNone(st.sample_var(self.nums7))
-        self.assertIsNotNone(st.sample_var(self.nums8))
+        self.assertIsNone(st.sample_var(self.nums7))
+        self.assertIsNone(st.sample_var(self.nums8))
         
 
     def test_std(self):
