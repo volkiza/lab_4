@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
+# In[3]:
 
 
 import unittest
@@ -9,7 +9,7 @@ import z_score as z
 import numpy as np
 
 
-# In[7]:
+# In[4]:
 
 
 class TestZ_score(unittest.TestCase):
@@ -45,19 +45,18 @@ class TestZ_score(unittest.TestCase):
         np.random.seed(12345)
         self.assertEqual(z.p_se(3,5), 0.7200822998230956)
         self.assertIsNone(z.p_se(3,0))
-        self.assertIsNone(z.p_se('test',5))
+        
         self.assertEqual(z.p_se(4,10), 1.4737282653189494)
         self.assertIsNone(z.p_se(0,10))
-        self.assertIsNone(z.p_se('test',10))
+        
         self.assertEqual(z.p_se(5,15), 2.2018174311236614)
         self.assertIsNone(z.p_se(5,0))
-        self.assertIsNone(z.p_se('test',15))
+        
         self.assertEqual(z.p_se(6,20), 2.0092379244472363)
         self.assertIsNone(z.p_se(0,20))
-        self.assertIsNone(z.p_se('test',20))
+        
         self.assertEqual(z.p_se(7,25), 2.7658896891587617)
         self.assertIsNone(z.p_se(7,0))
-        self.assertIsNone(z.p_se('test',25))
         
     def tearDown(self):
         print('Tear Down')

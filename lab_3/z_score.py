@@ -12,7 +12,7 @@ class nonText(Exception):
     pass
 
 
-# In[8]:
+# In[2]:
 
 
 #z_score
@@ -52,14 +52,12 @@ def p_se(n,values):
             raise(nonNegative)
         if n <= 0:
             raise(nonNegative)
-        if n == str(n):
-            raise(nonText)
         se = st.s_std(p_obs(n,values)) / (len(p_obs(n,values))**(1/2))
         return se
     except nonNegative:
         print ("Error: values and n should be greater than 0")
-    except nonText:
-        print("Error: not supporting string")
+    except:
+        print("Error: unknown")
 
 
 # In[9]:
