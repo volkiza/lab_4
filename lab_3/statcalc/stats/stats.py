@@ -33,7 +33,7 @@ def s_median(nums):
             med = (med1 + med2) / 2
         else:
             med = nums[n // 2]
-    except TypeError:
+    except:
         print("Enter numerical values, wrong value entered")
     return med
 
