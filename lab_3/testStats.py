@@ -57,7 +57,7 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.sample_var(self.nums5), 5.8)
         self.assertIsNotNone(st.sample_var(self.nums7))
         self.assertIsNotNone(st.sample_var(self.nums8))
-        
+        self.assertIsNotNone(st.sample_var(self.nums6))
 
     def test_std(self):
         self.assertEqual(st.s_std(self.nums1), 1.4142135623730951)
