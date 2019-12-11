@@ -8,6 +8,7 @@ class TestStats(unittest.TestCase):
     nums5 = [2, 4, 6, 7, 8]
     nums4 = [1, 3, 5, 7, 9]
     nums3 = [1, 4, 6, 2, 4]
+    nums9 = [1, 2, 2, 6, 8, 10]
     nums6 = [6]
     nums7 = ['a','b','c']
     nums8 = list(range(0,6000))
@@ -36,7 +37,7 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.s_median(self.nums2), 5)
         self.assertEqual(st.s_median(self.nums3), 4)
         self.assertEqual(st.s_median(self.nums4), 5)
-        self.assertEqual(st.s_median(self.nums5), 6)
+        self.assertEqual(st.s_median(self.nums9), 4)
         self.assertIsNotNone(st.s_median(self.nums6))
         self.assertIsNotNone(st.s_median(self.nums7))
 
