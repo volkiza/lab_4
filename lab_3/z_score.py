@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[6]:
+# In[1]:
 
 
 class nonNegative(Exception):
@@ -12,7 +12,7 @@ class nonText(Exception):
     pass
 
 
-# In[7]:
+# In[8]:
 
 
 #z_score
@@ -24,7 +24,7 @@ def p_obs(n,values):
         if values <= 0:
             raise(nonNegative)
         if n <= 0:
-            reaise(nonNegative)
+            raise(nonNegative)
         population = np.random.randint(0,values, size = n)
         return population
     except nonNegative:
@@ -52,18 +52,14 @@ def p_se(n,values):
             raise(nonNegative)
         if n <= 0:
             raise(nonNegative)
+        if n == str(n):
+            raise(nonText)
         se = st.s_std(p_obs(n,values)) / (len(p_obs(n,values))**(1/2))
         return se
     except nonNegative:
         print ("Error: values and n should be greater than 0")
-    except:
-        print("Error: unknown error")
-
-
-# In[8]:
-
-
-p_zscore(6,3,0)
+    except nonText:
+        print("Error: not supporting string")
 
 
 # In[9]:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[4]:
 
 
 class nonNegative(Exception):
@@ -9,9 +9,6 @@ class nonNegative(Exception):
     pass
 class nonText(Exception):
     """Raised when the input value is a string"""
-    pass
-class nonArray(Exception):
-    """Raised when the input value is not an array"""
     pass
 
 import random
@@ -25,8 +22,6 @@ def knn(tr, te_row, n_neighbors):
             raise(nonNegative)
         if n_neighbors == str(n_neighbors):
             raise(nonText)
-        if type(tr)!=np.ndarray:
-            raise(nonArray)
         distances = list()
         for tr_row in tr:
             d = ds.e_distance(te_row, tr_row)
@@ -38,13 +33,11 @@ def knn(tr, te_row, n_neighbors):
         return st.s_mean(neighbors)
     except nonNegative:
         print ("Error: n_neighbors should be greater than 0")
-    except nonArray:
-        print("Error: input tr should be an array")
     except nonText:
         print("Error: not supporting string, please type a number")
 
 
-# In[3]:
+# In[5]:
 
 
 np.random.seed(12345)
