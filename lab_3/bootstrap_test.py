@@ -74,7 +74,6 @@ class TestBoot(unittest.TestCase):
         self.assertFalse(self.b1.print_nums())
     def test_simulation(self):
         self.assertFalse(self.b1.simulation())
-    #Simulation function is not tested as the output there is imposible to predict due to random resampling of the data
     def tearDown(self):
         print("The test is over")
     @classmethod
