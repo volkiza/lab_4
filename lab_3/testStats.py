@@ -8,6 +8,9 @@ class TestStats(unittest.TestCase):
     nums5 = [2, 4, 6, 7, 8]
     nums4 = [1, 3, 5, 7, 9]
     nums3 = [1, 4, 6, 2, 4]
+    nums6 = [6]
+    nums7 = ['a','b','c']
+    nums8 = list(range(0,6000))
 
     @classmethod
     def setUpClass(cls):
@@ -25,6 +28,8 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.s_mean(self.nums3), 3.4)
         self.assertEqual(st.s_mean(self.nums4), 5.0)
         self.assertEqual(st.s_mean(self.nums5), 5.4)
+        self.assertIsNotNone(st.stand_err(nums6))
+        self.assertIsNotNone(st.stand_err(nums7))
 
     def test_median(self):
         self.assertEqual(st.s_median(self.nums1), 3)
@@ -32,6 +37,8 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.s_median(self.nums3), 4)
         self.assertEqual(st.s_median(self.nums4), 5)
         self.assertEqual(st.s_median(self.nums5), 6)
+        self.assertIsNotNone(st.stand_err(nums6))
+        self.assertIsNotNone(st.stand_err(nums7))
 
     def test_var(self):
         self.assertEqual(st.s_var(self.nums1), 2)
@@ -39,6 +46,7 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.s_var(self.nums3), 3.04)
         self.assertEqual(st.s_var(self.nums4), 8.0)
         self.assertEqual(st.s_var(self.nums5), 4.64)
+        self.assertIsNotNone(st.stand_err(nums7))
 
     def test_sampleVar(self):
         self.assertEqual(st.sample_var(self.nums1), 2.5)
@@ -46,6 +54,9 @@ class TestStats(unittest.TestCase):
         self.assertEqual(st.sample_var(self.nums3), 3.8)
         self.assertEqual(st.sample_var(self.nums4), 10.0)
         self.assertEqual(st.sample_var(self.nums5), 5.8)
+        self.assertIsNotNone(st.stand_err(nums7))
+        self.assertIsNotNone(st.stand_err(nums8))
+        
 
     def test_std(self):
         self.assertEqual(st.s_std(self.nums1), 1.4142135623730951)
