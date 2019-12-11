@@ -41,45 +41,21 @@ def resample(nums):
         print("Inapropriate type, pass numpy array")
 
 def sample_stand_err(nums):
-    try:
-        if type(nums)!=np.ndarray:
-            raise(NonNumpy)
-        if nums.shape[0]<50:
-            raise(LengthError)
-        return float('%.4f' % round((st.sample_std(nums)/len(nums)**0.5),4))
-    except LengthError:
-        print ("The array of size {} too short".format(nums.shape[0]))
-    except NonNumpy:
-        print("Inapropriate type, pass numpy array")
+    return float('%.4f' % round((st.sample_std(nums)/len(nums)**0.5),4))
+
 
 def stand_err(nums):
-    try:
-        if type(nums)!=np.ndarray:
-            raise(NonNumpy)
-        if nums.shape[0]<50:
-            raise(LengthError)
-        return float('%.4f' % round((st.s_std(nums)/len(nums)**0.5),4))
-    except LengthError:
-        print ("The array of size {} too short".format(nums.shape[0])) 
-    except NonNumpy:
-        print("Inapropriate type, pass numpy array")
+    return float('%.4f' % round((st.s_std(nums)/len(nums)**0.5),4))
+
 
 def sample_distr(nums):
-    try:
-        if type(nums)!=np.ndarray:
-            raise(NonNumpy)
-        if nums.shape[0]<50:
-            raise(LengthError)
-        sample_props=[]
-        for _ in range(10000):
-            sample=resample(nums)
-            sample_props.append(st.s_mean(sample))
-        sample_props=np.array(sample_props)
-        return sample_props
-    except LengthError:
-        print ("The array of size {} too short".format(nums.shape[0])) 
-    except NonNumpy:
-        print("Inapropriate type, pass numpy array")
+    sample_props=[]
+    for _ in range(10000):
+        sample=resample(nums)
+        sample_props.append(st.s_mean(sample))
+    sample_props=np.array(sample_props)
+    return sample_props
+
 
 def b_plot(nums):
     plt.hist(nums,color="pink",linewidth=2)
