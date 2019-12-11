@@ -35,8 +35,7 @@ class Bootstrap:
             print ("The array of size {} too short".format(self.nums.shape[0]))
         except NonNumpy:
             print("Inapropriate type, pass numpy array")
-        except:
-            print("Something wrong, try one more time")
+
         
     def mean(self):
         try:
@@ -49,8 +48,7 @@ class Bootstrap:
             print ("The array of size {} too short".format(self.nums.shape[0]))
         except NonNumpy:
             print("Inapropriate type, pass numpy array")
-        except:
-            print("Something wrong, try one more time")
+
         
     def sd(self):
         try:
@@ -63,11 +61,12 @@ class Bootstrap:
             print ("The array of size {} too short".format(self.nums.shape[0]))
         except NonNumpy:
             print("Inapropriate type, pass numpy array")
-        except:
-            print("Something wrong, try one more time")
+
         
     def s_se(self):
         return float('%.4f' % round(bt.sample_stand_err(self.nums),4))
+
+
     def simulation(self):
         sample=bt.sample_distr(self.nums)
         print("Simulation results: ")

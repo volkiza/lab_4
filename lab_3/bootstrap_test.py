@@ -58,15 +58,12 @@ class TestBoot(unittest.TestCase):
                459, 407, 167, 180, 146, 137, 444, 214, 282,  70, 302, 492, 476,
                414, 375, 169])
         self.p3=np.array([3571,  800,  988, 1914,  663, 3732,  498, 2041, 3381, 2763,   49,
-       2871, 1205, 3001, 3342, 1240, 2737, 3074, 2695,  394,  271, 3322,
-       1818, 2622, 1404, 1233, 3792, 1359,  399, 3045, 2614, 1842, 1347,
-       2701,  195, 1889,  715, 3434, 3068,  337, 2978,  133, 1573,   40,
-       3543, 2081, 1527, 1452, 2480,  853,  943])
-        self.p4=np.array([314, 438, 478, 346, 213, 317, 456, 200,  20, 225, 253, 299, 171,
+       2871])
+        self.p4=[314, 438, 478, 346, 213, 317, 456, 200,  20, 225, 253, 299, 171,
        307, 226, 469,  72, 139, 171, 345,   1, 469, 434, 334,  45,  16,
        415,  17, 421, 102, 112, 134, 295, 440, 394, 168, 355, 204, 122,
        488, 355, 317, 288,  23, 270,  64, 368, 367, 478, 406,  65,  39,
-        46,  40, 147,  92,   6,  28, 484, 215])
+        46,  40, 147,  92,   6,  28, 484, 215]
         self.p5=np.array([3014, 3244,  469, 1335, 2175, 2710, 1085, 2332,  934, 3713, 3782,
         523, 1370, 2437,  438, 2889, 3485, 1940, 3532, 2782,  907,  405,
         170, 3662, 2278, 3814, 2656, 3375, 1627, 1392, 1034,  196, 2146,
@@ -85,22 +82,22 @@ class TestBoot(unittest.TestCase):
         print("Test mean")
         self.assertEqual(self.b1.mean(),30.716)
         self.assertEqual(self.b2.mean(),247.08)
-        self.assertEqual(self.b3.mean(),1881.7451)
-        self.assertEqual(self.b4.mean(),242.05)
+        self.assertFalse(self.b3.mean())
+        self.assertFalse(self.b4.mean())
         self.assertEqual(self.b5.mean(),2017.6026)
     def test_sd(self):
         print("Test sd")
         self.assertEqual(self.b1.sd(),16.798)
         self.assertEqual(self.b2.sd(),143.0241)
-        self.assertEqual(self.b3.sd(),1143.7814)
-        self.assertEqual(self.b4.sd(),155.8683)
+        self.assertFalse(self.b3.sd())
+        self.assertFalse(self.b4.sd())
         self.assertEqual(self.b5.sd(),1174.1176)
     def test_se(self):
         print("Test stand_err")
         self.assertEqual(self.b1.s_se(),1.0645)
         self.assertEqual(self.b2.s_se(),9.0638)
-        self.assertEqual(self.b3.s_se(),161.7551)
-        self.assertEqual(self.b4.s_se(),20.2923)
+       # self.assertFalse(self.b3.s_se())
+        #self.assertFalse(self.b4.s_se())
         self.assertEqual(self.b5.s_se(),133.8031)
     def test_is_instance(self):
         print("Check if the part of instance class")
