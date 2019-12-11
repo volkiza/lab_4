@@ -45,21 +45,18 @@ def s_var(nums):
             tot += (s_mean(nums) - i) ** 2
     except ValueError:
         print("Enter numerical values, wrong value entered")
-    try:
-        if n<=5000:
-            raise ListLenError()
-    except ListLenError:
-        print("Enter more than 5000 observations to be considered population")  
-     
-    variance = tot / n
+    variance = tot / len(nums)
     return variance
 
 
 def sample_var(nums):
     tot = 0
-    for i in nums:
-        tot += (s_mean(nums) - i) ** 2
-    n = (len(nums)-1) 
+    try:
+        for i in nums:
+            tot += (s_mean(nums) - i) ** 2
+        n = (len(nums)-1) 
+    except ValueError:
+        print("Enter numerical values, wrong value entered")
     try:
         if n>5000:
             raise LargeSampleError()
