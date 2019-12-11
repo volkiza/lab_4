@@ -51,10 +51,10 @@ def s_var(nums):
 
 def sample_var(nums):
     tot = 0
+    n = (len(nums)-1)
     try:
         for i in nums:
-            tot += (s_mean(nums) - i) ** 2
-        n = (len(nums)-1) 
+            tot += (s_mean(nums) - i) ** 2 
     except TypeError:
         print("Enter numerical values, wrong value entered")
     try:
@@ -62,9 +62,11 @@ def sample_var(nums):
             raise LargeSampleError()
     except LargeSampleError:
         print("Enter less than 5001 observations to be considered a sample") 
-    
-    variance = tot / n
-    return variance
+    try:
+        variance = tot / n
+        return variance
+    except ZeroDivisionError:
+        print("Enter more observation, cannot divide by zero")
 
 
 def s_std(nums):
