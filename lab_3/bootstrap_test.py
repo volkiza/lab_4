@@ -8,10 +8,12 @@ import unittest
 import numpy as np
 import matplotlib.pyplot as plt
 
+from unittest import mock
+
 from statcalc.stats.bootstrap import bootstrap as bs
 
 
-# In[17]:
+# In[4]:
 
 
 class TestBoot(unittest.TestCase):
@@ -68,6 +70,10 @@ class TestBoot(unittest.TestCase):
         self.assertIsInstance(self.b4,bs.Bootstrap)
         self.assertIsInstance(self.b5,bs.Bootstrap)
         self.assertNotIsInstance(self.p5,bs.Bootstrap)
+    def test_print(self):
+        self.assertFalse(self.b1.print_nums())
+    def test_simulation(self):
+        self.assertFalse(self.b1.simulation())
     #Simulation function is not tested as the output there is imposible to predict due to random resampling of the data
     def tearDown(self):
         print("The test is over")
@@ -76,7 +82,6 @@ class TestBoot(unittest.TestCase):
         print('teardownClass TestBoot')
         
 unittest.main(argv=[''], verbosity=2, exit=False)
-
 
 # In[ ]:
 

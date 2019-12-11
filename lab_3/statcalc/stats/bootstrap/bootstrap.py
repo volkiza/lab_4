@@ -19,11 +19,6 @@ from statcalc.stats.bootstrap import boot_func as bt
 class Bootstrap:
     def __init__(self,nums):
         self.nums=nums
-        if isinstance(nums,np.ndarray):
-            pass
-        else:
-            nums=np.array(nums)
-            print("Transfered the list to numpy array")
     def print_nums(self):
         return print ("The original array is: {}".format(self.nums))
     def mean(self):

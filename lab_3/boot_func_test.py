@@ -1,15 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[12]:
 
 
 import unittest
 import statcalc.stats.bootstrap.boot_func as st
 import numpy as np
+from unittest import mock
+import matplotlib.pyplot as plt
 
 
-# In[2]:
+# In[16]:
 
 
 class Boot_func_test(unittest.TestCase):
@@ -60,8 +62,26 @@ class Boot_func_test(unittest.TestCase):
         self.assertEqual(int(len(self.p3)/3), len(st.resample(self.p3)))
         self.assertIsNotNone(st.resample(self.p4))
         self.assertIsNotNone(st.resample(self.p5))
+    @mock.patch("%s.st.plt" % __name__)
+    def test_module(self,mock_plt):
+        st.b_plot(self.p1)
+        assert mock_plt.title.call_args_list[0][0][0] == 'Simulated sampling distribution'
+        assert mock_plt.hist.called
+        st.b_plot(self.p2)
+        assert mock_plt.title.call_args_list[0][0][0] == 'Simulated sampling distribution'
+        assert mock_plt.hist.called
+        st.b_plot(self.p3)
+        assert mock_plt.title.call_args_list[0][0][0] == 'Simulated sampling distribution'
+        assert mock_plt.hist.called
+        st.b_plot(self.p4)
+        assert mock_plt.title.call_args_list[0][0][0] == 'Simulated sampling distribution'
+        assert mock_plt.hist.called
+        st.b_plot(self.p5)
+        assert mock_plt.title.call_args_list[0][0][0] == 'Simulated sampling distribution'
+        assert mock_plt.hist.called
     def tearDown(self):
         print("The test is over")
+        
     @classmethod
     def tearDownClass(cls):
         print('teardownClass Boot_func_test')
