@@ -12,7 +12,7 @@ def s_mean(nums):
         if n<2:
             raise ListLenError()
         return float(sum(nums)) / n
-    except ValueError:
+    except TypeError:
         print("Enter numerical values, wrong value entered")        
     except ListLenError:
         print("Enter more than one number")
