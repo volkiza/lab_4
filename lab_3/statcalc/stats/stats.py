@@ -26,15 +26,12 @@ def s_median(nums):
     except ListLenError:
         print("Enter more than one number")        
     nums.sort()
-    try:
-        if n % 2 == 0:
-            med1 = nums[n // 2]
-            med2 = nums[n // 2 - 1]
-            med = (med1 + med2) / 2
-        else:
-            med = nums[n // 2]
-    except:
-        print("Enter numerical values, wrong value entered")
+    if n % 2 == 0:
+        med1 = nums[n // 2]
+        med2 = nums[n // 2 - 1]
+        med = (med1 + med2) / 2
+    else:
+        med = nums[n // 2]
     return med
 
 
