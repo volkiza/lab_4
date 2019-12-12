@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
+# In[6]:
 
 
 class nonNegative(Exception):
     """Raised when the input value is a negative number"""
     pass
-class nonText(Exception):
-    """Raised when the input value is a string"""
+class nonZero(Exception):
+    """Raised when the input value is a zero"""
     pass
 
 import random
@@ -20,8 +20,8 @@ def knn(tr, te_row, n_neighbors):
     try:
         if n_neighbors <= 0:
             raise(nonNegative)
-        if n_neighbors == str(n_neighbors):
-            raise(nonText)
+        if te_row == 0:
+            raise(nonZero)
         distances = list()
         for tr_row in tr:
             d = ds.e_distance(te_row, tr_row)
@@ -33,11 +33,11 @@ def knn(tr, te_row, n_neighbors):
         return st.s_mean(neighbors)
     except nonNegative:
         print ("Error: n_neighbors should be greater than 0")
-    except nonText:
-        print("Error: not supporting string, please type a number")
+    except nonZero:
+        print("Error: wrong input")
 
 
-# In[5]:
+# In[7]:
 
 
 np.random.seed(12345)

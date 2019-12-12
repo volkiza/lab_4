@@ -9,7 +9,7 @@ import z_score as z
 import numpy as np
 
 
-# In[4]:
+# In[5]:
 
 
 class TestZ_score(unittest.TestCase):
@@ -22,7 +22,9 @@ class TestZ_score(unittest.TestCase):
 
     def setUp(self):
         print('Set Up')
-    
+    def test_p_obs(self):
+        self.assertIsNone(z.p_obs(3,0))
+        self.assertIsNone(z.p_obs(0,3))
     def test_p_zscore(self):
         np.random.seed(12345)
         self.assertEqual(z.p_zscore(6,3,7), 1.414213562373095)
